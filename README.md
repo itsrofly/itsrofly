@@ -73,3 +73,15 @@ yarn serve
 ```
 
 Then visit [http://localhost:8080/](http://localhost:8080/)
+
+
+## Deployment (Render.com)
+
+Build Command: 
+Create a new web service with the following values:
+  * Build Command: `yarn build`
+  * Start Command: `yarn serve`
+
+[Setting environment](https://render.com/docs/configure-environment-variables) variables:
+  * NODE_ENV: production
+  * ORIGIN: https://example.com
