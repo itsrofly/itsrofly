@@ -79,7 +79,7 @@ Then visit [http://localhost:8080/](http://localhost:8080/)
 
 Build Command: 
 Create a new web service with the following values:
-  * Build Command: `yarn install --frozen-lockfile; yarn build`
+  * Build Command: `yarn install --frozen-lockfile --production=false; yarn build` (dev dependencies are included because of qwik)
   * Start Command: `yarn serve`
 
 [Setting environment](https://render.com/docs/configure-environment-variables) variables:
