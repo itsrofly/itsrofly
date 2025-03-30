@@ -44,6 +44,7 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
-    "express": "4.20.0"
+    "express": "4.20.0",
+    "qwik": "^1.0.57"
   }
 }
