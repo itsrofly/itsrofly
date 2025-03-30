@@ -83,5 +83,5 @@ Create a new web service with the following values:
   * Start Command: `yarn serve`
 
 [Setting environment](https://render.com/docs/configure-environment-variables) variables:
-  * NODE_ENV: production
-  * ORIGIN: https://example.com
+  * NODE_ENV: `production`
+  * ORIGIN: `https://example.com`
