@@ -38,13 +38,13 @@
     "eslint": "8.57.0",
     "eslint-plugin-qwik": "^1.12.1",
     "prettier": "3.3.3",
+    "qwik": "^1.0.57",
     "typescript": "5.4.5",
     "undici": "*",
     "vite": "5.3.5",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
-    "express": "4.20.0",
-    "qwik": "^1.0.57"
+    "express": "4.20.0"
   }
 }
