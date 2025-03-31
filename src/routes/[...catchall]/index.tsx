@@ -4,10 +4,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 export default component$(() => {
   return (
     <>
-      <h1>Hi 👋</h1>
-      <div>
-        ItsRofly
-      </div>
+      404 Not Found
     </>
   );
 });
@@ -17,7 +14,7 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content: "ItsRofly Website",
+      content: "Not Found",
     },
   ],
 };
