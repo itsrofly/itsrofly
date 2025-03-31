@@ -1,4 +1,4 @@
-import { component$, useOn, $ } from "@builder.io/qwik";
+import { component$, useOn, $, useStyles$  } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -21,6 +21,7 @@ export default component$(() => {
     "qvisible",
     $(() => import("bootstrap")),
   );
+  useStyles$(bootstrapStyles);
 
   return (
     <QwikCityProvider>
