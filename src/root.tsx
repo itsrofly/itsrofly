@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useOn, $ } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -7,6 +7,7 @@ import {
 import { RouterHead } from "./components/router-head/router-head";
 import { isDev } from "@builder.io/qwik";
 
+import bootstrapStyles from "../node_modules/bootstrap/dist/css/bootstrap.min.css?inline";
 import "./global.css";
 
 export default component$(() => {
@@ -16,6 +17,10 @@ export default component$(() => {
    *
    * Don't remove the `<head>` and `<body>` elements.
    */
+  useOn(
+    "qvisible",
+    $(() => import("bootstrap")),
+  );
 
   return (
     <QwikCityProvider>
