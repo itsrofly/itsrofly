@@ -4,8 +4,8 @@ import "./style.css"
 export const Navbar = component$(() => {
 
     return (
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid border-navbar">
+        <nav class="navbar fixed-top navbar-expand-lg" style={{backgroundColor: "#242424"}}>
+            <div class="container-fluid border-navbar" >
                 <a class="navbar-brand ms-5 mb-2" href="/">
                     <span class="terciary-color">Its</span>
                     <span class="primary-color">Rofly</span>
