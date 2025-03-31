@@ -1,4 +1,4 @@
-import { component$, useOn, $, useStyles$  } from "@builder.io/qwik";
+import { component$, useOn, $, useStyles$ } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -33,6 +33,10 @@ export default component$(() => {
             href={`${import.meta.env.BASE_URL}manifest.json`}
           />
         )}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com"  crossOrigin="anonymous"/>
+        <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
+        </link>
         <RouterHead />
       </head>
       <body lang="en">
