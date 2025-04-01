@@ -117,22 +117,22 @@ export default component$(() => {
           </div>
           {/* Filter */}
           <div class="ps-3 d-inline-flex gap-3 mb-1">
-            <a class={"btn btn-outline-light" + (selecTag.value == 0 ? " active" : "")} onClick$={() => selecTag.value = 0}
-             role="button" style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>All</a>
+            <button class={"btn btn-outline-light" + (selecTag.value == 0 ? " active" : "")} onClick$={() => selecTag.value = 0}
+              style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>All</button>
 
             <div class="border border-end" style={{ height: "1.8rem" }}></div>
 
-            <a class={"btn btn-outline-light" + (selecTag.value == 1 ? " active" : "")} onClick$={() => selecTag.value = 1}
-            role="button" style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>AI</a>
+            <button class={"btn btn-outline-light" + (selecTag.value == 1 ? " active" : "")} onClick$={() => selecTag.value = 1}
+              style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>AI</button>
 
-            <a class={"btn btn-outline-light" + (selecTag.value == 2 ? " active" : "")}  onClick$={() => selecTag.value = 2}
-            role="button" style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>Backend</a>
+            <button class={"btn btn-outline-light" + (selecTag.value == 2 ? " active" : "")} onClick$={() => selecTag.value = 2}
+              style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>Backend</button>
 
-            <a class={"btn btn-outline-light" + (selecTag.value == 3 ? " active" : "")} onClick$={() => selecTag.value = 3} 
-            role="button" style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>Frontend</a>
+            <button class={"btn btn-outline-light" + (selecTag.value == 3 ? " active" : "")} onClick$={() => selecTag.value = 3}
+              style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>Frontend</button>
           </div>
           <div class="ps-4">
-          <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Select tag</span>
+            <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Select tag</span>
           </div>
         </div>
       </div>
