@@ -1,7 +1,9 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
+  const selecTag = useSignal(0);
+
   return (
     <>
       <div class="d-flex flex-column v-100 vh-100">
@@ -51,42 +53,42 @@ export default component$(() => {
               {/* Latest 3 Posts */}
               <a class="d-flex flex-row mb-5 link-underline link-underline-opacity-0" href="/blog/id">
                 <div>
-                  <span class="secondary-color" style={{fontSize: "0.8rem"}}>June 01, 2004</span>
-                  </div>
+                  <span class="secondary-color" style={{ fontSize: "0.8rem" }}>June 01, 2004</span>
+                </div>
                 <div class="ms-4">
                   <div>
                     <span class="terciary-color">Title</span>
                   </div>
                   <div>
-                    <span class="secondary-color"  style={{fontSize: "0.8rem"}}>Short Description</span>
+                    <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Short Description</span>
                   </div>
                 </div>
               </a>
 
               <a class="d-flex flex-row mb-5 link-underline link-underline-opacity-0" href="/blog/id">
                 <div>
-                  <span class="secondary-color" style={{fontSize: "0.8rem"}}>June 01, 2004</span>
-                  </div>
+                  <span class="secondary-color" style={{ fontSize: "0.8rem" }}>June 01, 2004</span>
+                </div>
                 <div class="ms-4">
                   <div>
                     <span class="terciary-color">Title</span>
                   </div>
                   <div>
-                    <span class="secondary-color"  style={{fontSize: "0.8rem"}}>Short Description</span>
+                    <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Short Description</span>
                   </div>
                 </div>
               </a>
 
               <a class="d-flex flex-row mb-5 link-underline link-underline-opacity-0" href="/blog/id">
                 <div>
-                  <span class="secondary-color" style={{fontSize: "0.8rem"}}>June 01, 2004</span>
-                  </div>
+                  <span class="secondary-color" style={{ fontSize: "0.8rem" }}>June 01, 2004</span>
+                </div>
                 <div class="ms-4">
                   <div>
                     <span class="terciary-color">Title</span>
                   </div>
                   <div>
-                    <span class="secondary-color"  style={{fontSize: "0.8rem"}}>Short Description</span>
+                    <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Short Description</span>
                   </div>
                 </div>
               </a>
@@ -97,7 +99,7 @@ export default component$(() => {
 
         <div class="d-flex flex-row justify-content-around mt-5">
           {/* Scroll Down */}
-          <div class="d-inline-flex gap-3" style={{cursor: "pointer"}} onClick$={(e) => {
+          <div class="d-inline-flex gap-3" style={{ cursor: "pointer" }} onClick$={(e) => {
             window.scrollBy(0, 650);
           }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-down-circle terciary-color" viewBox="0 0 16 16">
@@ -105,11 +107,33 @@ export default component$(() => {
             </svg>
             <span class="primary-color">Scroll</span>
           </div>
-          <div style={{color: "#242424"}}>©ItsRofly. All Rights Reserved.</div>
+          <div style={{ color: "#242424" }}>©ItsRofly. All Rights Reserved.</div>
         </div>
       </div>
+
+      {/* Projects */}
       <div class="vh-100 v-100 text-white">
-        Projects
+        <div class="m-auto h-100 w-75">
+          <div class="mb-4">
+            <span class="primary-color">Projects</span>
+          </div>
+          {/* Filter */}
+          <div class="ps-3 d-inline-flex gap-3">
+            <a class={"btn btn-outline-light" + (selecTag.value == 0 ? " active" : "")} onClick$={() => selecTag.value = 0}
+             role="button" style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>All</a>
+
+            <div class="border border-end" style={{ height: "1.8rem" }}></div>
+
+            <a class={"btn btn-outline-light" + (selecTag.value == 1 ? " active" : "")} onClick$={() => selecTag.value = 1}
+            role="button" style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>AI</a>
+
+            <a class={"btn btn-outline-light" + (selecTag.value == 2 ? " active" : "")}  onClick$={() => selecTag.value = 2}
+            role="button" style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>Backend</a>
+
+            <a class={"btn btn-outline-light" + (selecTag.value == 3 ? " active" : "")} onClick$={() => selecTag.value = 3} 
+            role="button" style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>Frontend</a>
+          </div>
+        </div>
       </div>
     </>
   );
