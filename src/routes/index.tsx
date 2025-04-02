@@ -6,7 +6,7 @@ export default component$(() => {
 
   return (
     <>
-      <div class="d-flex flex-column v-100 vh-100">
+      <div class="d-flex flex-column vh-100 container-fluid ">
         {/* Introduction */}
         <div class="d-flex flex-row justify-content-evenly align-items-center h-75 mt-5">
           {/* Description | Latest Posts */}
@@ -110,26 +110,27 @@ export default component$(() => {
       </div>
 
       {/* Projects */}
-      <div class="v-100 min-vh-100">
+      <div class="container-fluid min-vh-100">
         <div class="m-auto h-100 w-75">
           <div class="mb-4">
             <span class="primary-color">Projects</span>
           </div>
           {/* Filter */}
-          <div class="ps-3 d-inline-flex gap-3 mb-1">
-            <button class={"btn btn-outline-light" + (selecTag.value == 0 ? " active" : "")} onClick$={() => selecTag.value = 0}
-              style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>All</button>
+          <div class="mb-1">
+            <div class="row gap-3">
 
-            <div class="border border-end" style={{ height: "1.8rem" }}></div>
+              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 0 ? " active" : "")} onClick$={() => selecTag.value = 0}
+                style={{ "--bs-btn-padding-y": "0.1rem" }}>All</button>
 
-            <button class={"btn btn-outline-light" + (selecTag.value == 1 ? " active" : "")} onClick$={() => selecTag.value = 1}
-              style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>AI</button>
+              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 1 ? " active" : "")} onClick$={() => selecTag.value = 1}
+                style={{ "--bs-btn-padding-y": "0.1rem" }}>AI</button>
 
-            <button class={"btn btn-outline-light" + (selecTag.value == 2 ? " active" : "")} onClick$={() => selecTag.value = 2}
-              style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>Backend</button>
+              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 2 ? " active" : "")} onClick$={() => selecTag.value = 2}
+                style={{ "--bs-btn-padding-y": "0.1rem" }}>Backend</button>
 
-            <button class={"btn btn-outline-light" + (selecTag.value == 3 ? " active" : "")} onClick$={() => selecTag.value = 3}
-              style={{ "--bs-btn-padding-x": "2rem", "--bs-btn-padding-y": "0.1rem" }}>Frontend</button>
+              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 3 ? " active" : "")} onClick$={() => selecTag.value = 3}
+                style={{ "--bs-btn-padding-y": "0.1rem" }}>Frontend</button>
+            </div>
           </div>
           <div class="ps-4">
             <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Select tag</span>
