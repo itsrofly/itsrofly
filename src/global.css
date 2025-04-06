@@ -23,3 +23,21 @@ body {
 *::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    row-gap: 60px;
+    column-gap: 60px;
+  }
+
+@media (max-width: 810px) {
+    #scroll, #latest-posts, #home-p2 {
+      display: none !important;
+    }
+
+    #description {
+        margin-top: 50px;
+        width: 250px;
+    }
+  }

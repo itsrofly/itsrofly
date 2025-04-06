@@ -6,11 +6,11 @@ export default component$(() => {
 
   return (
     <>
-      <div class="d-flex flex-column vh-100 container-fluid ">
+      <div id="home-p1" class="d-flex flex-column vh-100 container-fluid mt-2 ">
         {/* Introduction */}
-        <div class="d-flex flex-row justify-content-evenly align-items-center h-75 mt-5">
+        <div id="introduction" class="d-flex flex-row justify-content-evenly align-items-center h-75">
           {/* Description | Latest Posts */}
-          <div class="d-flex flex-column" style={{ maxWidth: "500px" }} >
+          <div id="description" class="d-flex flex-column" style={{ maxWidth: "500px" }} >
             {/* Description */}
             <div class="mb-2">
               {/* Hello Message */}
@@ -42,7 +42,7 @@ export default component$(() => {
             </div>
           </div>
 
-          <div class="d-flex flex-column">
+          <div id="latest-posts" class="d-flex flex-column ">
             {/* Latest posts */}
             <div class="mb-3">
               <span class="primary-color">Latest Posts</span>
@@ -97,9 +97,9 @@ export default component$(() => {
 
         </div>
 
-        <div class="d-flex flex-row justify-content-around mt-5">
+        <div class="d-flex flex-row justify-content-around mt-4">
           {/* Scroll Down */}
-          <a class="d-inline-flex gap-3 link-underline link-underline-opacity-0" href="/#Projects">
+          <a id="scroll" class="d-inline-flex gap-3 link-underline link-underline-opacity-0" href="/#Projects">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-down-circle terciary-color" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
             </svg>
@@ -110,8 +110,8 @@ export default component$(() => {
       </div>
 
       {/* Projects */}
-      <div class="container-fluid min-vh-100">
-        <div class="m-auto h-100 w-75">
+      <div id="home-p2" class="container d-flex justify-content-center min-vh-100">
+        <div class="container mx-5">
           <div class="mb-4">
             <span class="primary-color">Projects</span>
           </div>
@@ -132,8 +132,23 @@ export default component$(() => {
                 style={{ "--bs-btn-padding-y": "0.1rem" }}>Frontend</button>
             </div>
           </div>
-          <div class="ps-4">
+          <div class="ps-2">
             <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Select tag</span>
+          </div>
+          <div class="mt-5 mb-5 grid-layout">
+            {/* Projects */}
+            <div class="card bg-transparent border ps-3 pt-3" style={{ width: "220px", height: "150px" }}>
+              <a class="terciary-color link-underline link-underline-opacity-0" href="github.com">Title</a>
+              <span class="secondary-color">Short Description</span>
+              <a class="mt-1 primary-color link-underline link-underline-opacity-0" href="/blog/id">Read Blog</a>
+              <div class="d-inline-flex gap-3 mt-3">
+                {/* Technologies */}
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-down-circle terciary-color" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
+                </svg>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

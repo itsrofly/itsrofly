@@ -4,14 +4,16 @@ import "./style.css"
 export const Navbar = component$(() => {
 
     return (
-        <nav class="navbar fixed-top navbar-expand-lg" style={{backgroundColor: "#242424"}}>
+        <nav class="navbar sticky-top navbar-expand-lg" style={{ backgroundColor: "#242424" }}>
             <div class="container-fluid border-navbar" >
                 <a class="navbar-brand ms-5 mb-2" href="/">
                     <span class="terciary-color">Its</span>
                     <span class="primary-color">Rofly</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto me-4 mb-2" >
