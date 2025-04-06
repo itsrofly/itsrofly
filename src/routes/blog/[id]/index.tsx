@@ -21,18 +21,12 @@ export default component$(() => {
     <>
       <div class="container-fluid d-flex justify-content-center mt-5">
         <div class="d-flex justify-content-evenly w-100">
-          <div>
-            <span class="secondary-color">
-              {post.value.date}
-            </span>
-          </div>
-
-          <div class="d-flex flex-column gap-3">
+          <div id="blog-content" class="d-flex flex-column gap-3">
             <span class="terciary-color">
               {post.value.title}
             </span>
             <span class="secondary-color">
-              {post.value.description}
+            {post.value.date} | {post.value.description}
             </span>
             <div class="mt-5" style={{"max-width": "700px !important"}}>
               <span class="text-white text-break" >
@@ -42,7 +36,7 @@ export default component$(() => {
             </div>
           </div>
 
-          <div>
+          <div id="blog-sub">
             <span class="secondary-color">
               Subtitles
             </span>

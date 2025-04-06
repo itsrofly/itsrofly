@@ -32,7 +32,7 @@ body {
   }
 
 @media (max-width: 810px) {
-    #scroll, #latest-posts, #home-p2 {
+    #scroll, #latest-posts, #home-p2, #blog-sub {
       display: none !important;
     }
 
