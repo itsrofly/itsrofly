@@ -1,6 +1,29 @@
 import sqlite3 from 'sqlite3'
 import { open } from 'sqlite'
 
+export interface Blog {
+    ID: number
+    Title: string
+    Date: string
+    Short_Description: string
+    Content_URL: string
+}
+
+export interface Project {
+    ID: number
+    Title: string
+    URL: string
+    Date: string
+    Short_Description: string
+    Tags_ID: string // Comma-separated tag IDs
+    Techs: string // Comma-separated base64 strings
+    Blog_ID: number | null
+}
+export interface Tag {
+    ID: number
+    Name: string
+}
+
 export const getData = async () => {
     const db = await open({
         filename: 'storage/database.db',
@@ -17,15 +40,16 @@ export const getData = async () => {
         ID INTEGER PRIMARY KEY AUTOINCREMENT,
         Title TEXT NOT NULL,
         Date DATETIME DEFAULT CURRENT_TIMESTAMP,
-        Description TEXT,
-        Content TEXT NOT NULL
+        Short_Description TEXT,
+        Content_URL TEXT NOT NULL
     );
 
     CREATE TABLE IF NOT EXISTS Projects (
         ID INTEGER PRIMARY KEY AUTOINCREMENT,
         Title TEXT NOT NULL,
+        URL TEXT NOT NULL,
         Date DATETIME DEFAULT CURRENT_TIMESTAMP,
-        Description TEXT,
+        Short_Description TEXT,
         Tags_ID TEXT,  -- Comma-separated tag IDs
         Techs TEXT,    -- Comma-separated base64 strings
         Blog_ID INTEGER,
@@ -40,4 +64,15 @@ export const getData = async () => {
 
     db.close()
     return data
+}
+
+export const getBlog = async (id: string): Promise<Blog | null> => {
+    const db = await open({
+        filename: 'storage/database.db',
+        driver: sqlite3.Database
+      })
+
+    const blog = await db.get("SELECT * FROM Blogs WHERE ID = ?", id)
+    db.close()
+    return blog
 }

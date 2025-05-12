@@ -11,7 +11,7 @@ export default component$(() => {
         </div>
 
         <div class="border-start d-flex flex-column gap-4 ps-5">
-          <a class="d-flex flex-row mb-5 link-underline link-underline-opacity-0" href="/blog/id">
+          <a class="d-flex flex-row mb-5 link-underline link-underline-opacity-0" href="/blog/1">
             <div>
               <span class="secondary-color" style={{ fontSize: "0.8rem" }}>June 01, 2004</span>
             </div>
