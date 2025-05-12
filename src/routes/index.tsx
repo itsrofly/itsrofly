@@ -138,7 +138,7 @@ export default component$(() => {
           <div class="mt-5 mb-5 grid-layout">
             {/* Projects */}
             <div class="card bg-transparent border ps-3 pt-3" style={{ width: "220px", height: "150px" }}>
-              <a class="terciary-color link-underline link-underline-opacity-0" href="github.com">Title</a>
+              <a class="terciary-color link-underline link-underline-opacity-0" href="https://github.com/itsrofly/navvy-package">Title</a>
               <span class="secondary-color">Short Description</span>
               <a class="mt-1 primary-color link-underline link-underline-opacity-0" href="/blog/id">Read Blog</a>
               <div class="d-inline-flex gap-3 mt-3">
