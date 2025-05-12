@@ -20,8 +20,9 @@ export default component$(() => {
   return (
     <>
       <div class="container-fluid d-flex justify-content-center mt-5">
-        <div class="d-flex justify-content-evenly w-100">
-          <div id="blog-content" class="d-flex flex-column gap-3">
+        <div class="d-flex justify-content-center w-100">
+          <div class="d-flex flex-row gap-5">
+          <div id="blog-content" class="d-flex flex-column gap-3 p-5">
             <span class="terciary-color">
               {post.value.title}
             </span>
@@ -36,12 +37,14 @@ export default component$(() => {
             </div>
           </div>
 
-          <div id="blog-sub">
+          <div id="blog-sub" class="p-5" style={{minWidth: "100px"}}>
             <span class="secondary-color">
               Subtitles
             </span>
           </div>
           
+          </div>
+
         </div>
       </div>
     </>
