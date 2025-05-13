@@ -12,9 +12,6 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
     // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
     maxAge: 5,
   });
-
-  const data = await getData()
-  console.log(data)
 };
 
 export default component$(() => {
