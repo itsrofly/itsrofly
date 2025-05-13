@@ -32,8 +32,6 @@ export const usePost = routeLoader$(async (requestEvent) => {
   };
 
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
-    const token = tokens[idx];
-    const code = token.content.trim();
     // Default rendering
     const originalHTML = defaultFenceRender(tokens, idx, options, env, self);
 

@@ -1,5 +1,5 @@
 import { component$, useSignal, useResource$, Resource } from "@builder.io/qwik";
-import { routeAction$, routeLoader$, server$, type DocumentHead } from "@builder.io/qwik-city";
+import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { getBlogs, getProjects, getTags } from "~/tools";
 
 export const usePosts = routeLoader$(async () => {
@@ -13,16 +13,7 @@ export const useTags = routeLoader$(async () => {
   const tags = getTags();
   return tags;
 });
-
-export const useGetProjects = server$(
-  function (tag: number = -1) {
-  // Fetch blog data
-  const projects = getProjects(tag)
-  return projects;  
-  }
-);
  
-
 export default component$(() => {
   const selecTag = useSignal(-1);
   const posts = usePosts();
@@ -33,7 +24,7 @@ export default component$(() => {
 
     // Fetch projects
     // The server$ function useGetProjects will be awaited here
-    const projects = await useGetProjects(selecTag.value);
+    const projects = await getProjects(selecTag.value);
     return projects;
   });
 
