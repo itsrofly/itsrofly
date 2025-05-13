@@ -1,5 +1,5 @@
 import { component$, useSignal, useResource$, Resource } from "@builder.io/qwik";
-import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import { routeLoader$, server$, type DocumentHead } from "@builder.io/qwik-city";
 import { getBlogs, getProjects, getTags } from "~/tools";
 
 export const usePosts = routeLoader$(async () => {
@@ -13,7 +13,16 @@ export const useTags = routeLoader$(async () => {
   const tags = getTags();
   return tags;
 });
+
+export const loadProjects = server$(
+  function (tag: number = -1) {
+  // Fetch blog data
+  const projects = getProjects(tag)
+  return projects;  
+  }
+);
  
+
 export default component$(() => {
   const selecTag = useSignal(-1);
   const posts = usePosts();
@@ -24,7 +33,7 @@ export default component$(() => {
 
     // Fetch projects
     // The server$ function useGetProjects will be awaited here
-    const projects = await getProjects(selecTag.value);
+    const projects = await loadProjects(selecTag.value);
     return projects;
   });
 
@@ -129,7 +138,7 @@ export default component$(() => {
           <div class="mb-1">
             <div class="row gap-3">
 
-              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 0 ? " active" : "")} onClick$={() => selecTag.value = -1}
+              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == -1 ? " active" : "")} onClick$={() => selecTag.value = -1}
                 style={{ "--bs-btn-padding-y": "0.1rem" }}>All</button>
 
               {tags.value.map((tag) => (
