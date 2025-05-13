@@ -1,6 +1,6 @@
-import { component$, useSignal } from "@builder.io/qwik";
-import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
-import { getBlogs } from "~/tools";
+import { component$, useSignal, useResource$, Resource } from "@builder.io/qwik";
+import { routeAction$, routeLoader$, server$, type DocumentHead } from "@builder.io/qwik-city";
+import { getBlogs, getProjects, getTags } from "~/tools";
 
 export const usePosts = routeLoader$(async () => {
   // Fetch blog data
@@ -8,10 +8,34 @@ export const usePosts = routeLoader$(async () => {
   return blogs;
 });
 
+export const useTags = routeLoader$(async () => {
+  // Fetch blog data
+  const tags = getTags();
+  return tags;
+});
+
+export const useGetProjects = server$(
+  function (tag: number = -1) {
+  // Fetch blog data
+  const projects = getProjects(tag)
+  return projects;  
+  }
+);
+ 
 
 export default component$(() => {
-  const selecTag = useSignal(0);
+  const selecTag = useSignal(-1);
   const posts = usePosts();
+  const tags = useTags();
+
+  const projectsResource = useResource$(async ({ track }) => {
+    track(() => selecTag.value); // Re-run when selecTag.value changes
+
+    // Fetch projects
+    // The server$ function useGetProjects will be awaited here
+    const projects = await useGetProjects(selecTag.value);
+    return projects;
+  });
 
   return (
     <>
@@ -114,17 +138,13 @@ export default component$(() => {
           <div class="mb-1">
             <div class="row gap-3">
 
-              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 0 ? " active" : "")} onClick$={() => selecTag.value = 0}
+              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 0 ? " active" : "")} onClick$={() => selecTag.value = -1}
                 style={{ "--bs-btn-padding-y": "0.1rem" }}>All</button>
 
-              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 1 ? " active" : "")} onClick$={() => selecTag.value = 1}
-                style={{ "--bs-btn-padding-y": "0.1rem" }}>AI</button>
-
-              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 2 ? " active" : "")} onClick$={() => selecTag.value = 2}
-                style={{ "--bs-btn-padding-y": "0.1rem" }}>Backend</button>
-
-              <button class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == 3 ? " active" : "")} onClick$={() => selecTag.value = 3}
-                style={{ "--bs-btn-padding-y": "0.1rem" }}>Frontend</button>
+              {tags.value.map((tag) => (
+                <button key={tag.ID} class={"col-4 col-md-2 col-xxl-1 btn btn-outline-light" + (selecTag.value == tag.ID ? " active" : "")} onClick$={() => selecTag.value = tag.ID}
+                  style={{ "--bs-btn-padding-y": "0.1rem" }}>{tag.Name}</button>
+              ))}
             </div>
           </div>
           <div class="ps-2">
@@ -132,18 +152,22 @@ export default component$(() => {
           </div>
           <div class="mt-5 mb-5 grid-layout">
             {/* Projects */}
-            <div class="card bg-transparent border ps-3 pt-3" style={{ width: "220px", height: "150px" }}>
-              <a class="terciary-color link-underline link-underline-opacity-0" href="https://github.com/itsrofly/navvy-package">Title</a>
-              <span class="secondary-color">Short Description</span>
-              <a class="mt-1 primary-color link-underline link-underline-opacity-0" href="/blog/id">Read Blog</a>
-              <div class="d-inline-flex gap-3 mt-3">
-                {/* Technologies */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-down-circle terciary-color" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
-                </svg>
-              </div>
-            </div>
-
+            <Resource
+              value={projectsResource}
+              onPending={() => <p>Loading projects...</p>}
+              onRejected={(error) => <p>Error loading projects: {error.message}</p>}
+              onResolved={(projects) => (
+                <>
+                  {projects.map((project) => (
+                    <div key={project.ID} class="card bg-transparent border ps-3 pt-3" style={{ width: "220px", height: "150px" }}>
+                      <a class="terciary-color link-underline link-underline-opacity-0" href={project.URL}>{project.Title}</a>
+                      <span class="secondary-color">{project.Short_Description}</span>
+                      {project.Blog_ID && <a class="mt-2 primary-color link-underline link-underline-opacity-0" href={`/blog/${project.Blog_ID}`}>Read Blog</a>}
+                    </div>
+                  ))}
+                </>
+              )}
+            />
           </div>
         </div>
       </div>

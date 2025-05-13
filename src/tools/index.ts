@@ -89,3 +89,28 @@ export const getBlogs = async (limit: number = 0): Promise<Blog[]> => {
     db.close()
     return blogs
 }
+
+export const getTags = async (): Promise<Tag[]> => {
+    const db = await open({
+        filename: 'storage/database.db',
+        driver: sqlite3.Database
+      })
+
+    // Get all tags
+    const tags = await db.all("SELECT * FROM Tags")
+    db.close()
+    return tags
+}
+
+export const getProjects = async (tag: number = -1): Promise<Project[]> => {
+    const db = await open({
+        filename: 'storage/database.db',
+        driver: sqlite3.Database
+      })
+
+    const filterQuery = tag > -1 ? `WHERE ',' || Tags_ID || ',' LIKE '%,${tag},%'` : ''
+    // Get projects order by the latest date
+    const projects = await db.all(`SELECT * FROM Projects ${filterQuery} ORDER BY Date DESC`)
+    db.close()
+    return projects
+}
