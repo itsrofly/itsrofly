@@ -76,3 +76,16 @@ export const getBlog = async (id: string): Promise<Blog | null> => {
     db.close()
     return blog
 }
+
+export const getBlogs = async (limit: number = 0): Promise<Blog[]> => {
+    const db = await open({
+        filename: 'storage/database.db',
+        driver: sqlite3.Database
+      })
+    
+    const limitQuery = limit > 0 ? `LIMIT ${limit}` : ''
+    // Get blogs order by the latest date
+    const blogs = await db.all(`SELECT * FROM Blogs ORDER BY Date DESC ${limitQuery}`)
+    db.close()
+    return blogs
+}

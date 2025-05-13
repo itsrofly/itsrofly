@@ -1,8 +1,17 @@
 import { component$, useSignal } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import { getBlogs } from "~/tools";
+
+export const usePosts = routeLoader$(async () => {
+  // Fetch blog data
+  const blogs = getBlogs(3);
+  return blogs;
+});
+
 
 export default component$(() => {
   const selecTag = useSignal(0);
+  const posts = usePosts();
 
   return (
     <>
@@ -51,47 +60,33 @@ export default component$(() => {
             {/* Posts Container */}
             <div class="h-100 border-start border-white ps-3">
               {/* Latest 3 Posts */}
-              <a class="d-flex flex-row mb-5 link-underline link-underline-opacity-0" href="/blog/id">
-                <div>
-                  <span class="secondary-color" style={{ fontSize: "0.8rem" }}>June 01, 2004</span>
-                </div>
-                <div class="ms-4">
+              {posts.value.map((post) => (
+                <a
+                  key={post.ID}
+                  class="d-flex flex-row mb-5 link-underline link-underline-opacity-0"
+                  href={`/blog/${post.ID}`}
+                >
                   <div>
-                    <span class="terciary-color">Title</span>
+                    <span class="secondary-color" style={{ fontSize: "0.8rem" }}>
+                      {new Date(post.Date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "2-digit",
+                      })}
+                    </span>
                   </div>
-                  <div>
-                    <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Short Description</span>
+                  <div class="ms-4">
+                    <div>
+                      <span class="terciary-color">{post.Title}</span>
+                    </div>
+                    <div>
+                      <span class="secondary-color" style={{ fontSize: "0.8rem" }}>
+                        {post.Short_Description}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </a>
-
-              <a class="d-flex flex-row mb-5 link-underline link-underline-opacity-0" href="/blog/id">
-                <div>
-                  <span class="secondary-color" style={{ fontSize: "0.8rem" }}>June 01, 2004</span>
-                </div>
-                <div class="ms-4">
-                  <div>
-                    <span class="terciary-color">Title</span>
-                  </div>
-                  <div>
-                    <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Short Description</span>
-                  </div>
-                </div>
-              </a>
-
-              <a class="d-flex flex-row mb-5 link-underline link-underline-opacity-0" href="/blog/id">
-                <div>
-                  <span class="secondary-color" style={{ fontSize: "0.8rem" }}>June 01, 2004</span>
-                </div>
-                <div class="ms-4">
-                  <div>
-                    <span class="terciary-color">Title</span>
-                  </div>
-                  <div>
-                    <span class="secondary-color" style={{ fontSize: "0.8rem" }}>Short Description</span>
-                  </div>
-                </div>
-              </a>
+                </a>
+              ))}
             </div>
           </div>
 
