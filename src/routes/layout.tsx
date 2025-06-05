@@ -14,8 +14,11 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
-  return <>
-    <Navbar />
-    <Slot />
-  </>;
+  return (
+    <>
+      <Navbar />
+      <Slot />
+      <div style={{ color: "#242424" }}>©ItsRofly. All Rights Reserved.</div>
+    </>
+  );
 });
