@@ -43,7 +43,6 @@
     "prettier": "3.3.3",
     "qwik": "^1.0.57",
     "typescript": "5.4.5",
-    "undici": "*",
     "vite": "5.3.5",
     "vite-tsconfig-paths": "^4.2.1"
   },
@@ -56,8 +55,7 @@
     "markdown-it-prism": "^3.0.0",
     "pg": "^8.16.0",
     "prismjs": "^1.30.0",
-    "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "undici": "^7.10.0"
   },
   "packageManager": "yarn@4.9.2"
 }

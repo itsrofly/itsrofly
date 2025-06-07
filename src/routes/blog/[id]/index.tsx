@@ -10,7 +10,7 @@ export const usePost = routeLoader$(async (requestEvent) => {
   const blogData = await getBlog(postId);
 
   if (!blogData) {
-    throw requestEvent.error(404, "Blog not found");
+    throw requestEvent.error(404, "Blog not found! 😞");
   }
   // Fetch the Markdown content
   const response = await fetch(blogData.content_url);

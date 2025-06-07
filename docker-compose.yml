@@ -11,5 +11,16 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  website:
+    build: .
+    environment:
+      PRIVATE_PG_USER: admin
+      PRIVATE_PG_HOST: postgres
+      PRIVATE_PG_DATABASE: mydb
+      PRIVATE_PG_PASSWORD: password
+    ports:
+      - "4000:4000"
+    restart: always
+
 volumes:
   postgres_data:
