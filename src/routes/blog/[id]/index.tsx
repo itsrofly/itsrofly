@@ -1,8 +1,8 @@
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
-import { getBlog } from "~/tools";
+import { getBlog } from "~/util/db";
 import MarkdownIt from "markdown-it";
-import prism from 'markdown-it-prism';
+import prism from "markdown-it-prism";
 
 export const usePost = routeLoader$(async (requestEvent) => {
   // Fetch post info
@@ -13,7 +13,7 @@ export const usePost = routeLoader$(async (requestEvent) => {
     throw requestEvent.error(404, "Blog not found");
   }
   // Fetch the Markdown content
-  const response = await fetch(blogData.Content_URL);
+  const response = await fetch(blogData.content_url);
   const markdownContent = await response.text();
 
   // Parse subtitles (headings) from Markdown
@@ -27,9 +27,11 @@ export const usePost = routeLoader$(async (requestEvent) => {
   md.use(prism);
 
   // Save original fence rule
-  const defaultFenceRender = md.renderer.rules.fence || function(tokens, idx, options, env, self) {
-    return self.renderToken(tokens, idx, options);
-  };
+  const defaultFenceRender =
+    md.renderer.rules.fence ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
 
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
     // Default rendering
@@ -37,15 +39,15 @@ export const usePost = routeLoader$(async (requestEvent) => {
 
     // Add a copy button
     const copyButton = `
-      <button 
-        class="copy-code-button" 
+      <button
+        class="copy-code-button"
         onclick="
           navigator.clipboard.writeText(this.parentElement.querySelector('code').innerText);
           const btn = this;
           const originalColor = btn.style.backgroundColor;
           btn.style.backgroundColor = '#333'; // Clicked color
           btn.innerText = 'Copied!';
-          setTimeout(() => { 
+          setTimeout(() => {
             btn.style.backgroundColor = originalColor;
             btn.innerText = 'Copy';
           }, 1000); // Revert after 1 second
@@ -55,30 +57,32 @@ export const usePost = routeLoader$(async (requestEvent) => {
         Copy
       </button>
     `;
-    
+
     // Wrap the original HTML and add the button
     // Adding relative positioning to the wrapper to allow absolute positioning of the button
     // Add mouseenter/mouseleave to show/hide the button
-    return `<div 
-              style="position: relative;" 
+    return `<div
+              style="position: relative;"
               onmouseenter="this.querySelector('.copy-code-button').style.visibility = 'visible';"
               onmouseleave="this.querySelector('.copy-code-button').style.visibility = 'hidden';"
             >${originalHTML}${copyButton}</div>`;
   };
 
-  const defaultRender = md.renderer.rules.heading_open || function(tokens, idx, options, env, self) {
-    return self.renderToken(tokens, idx, options);
-  };
+  const defaultRender =
+    md.renderer.rules.heading_open ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
 
   md.renderer.rules.heading_open = function (tokens, idx, options, env, self) {
     const token = tokens[idx];
-    if (token.tag === 'h2') {
+    if (token.tag === "h2") {
       const textToken = tokens[idx + 1];
       const id = textToken.content.replace(/\s+/g, "-");
-      token.attrSet('id', id);
-      token.attrSet('class', 'mb-4 mt-5');
+      token.attrSet("id", id);
+      token.attrSet("class", "mb-4 mt-5");
     } else {
-      token.attrSet('class', 'mb-4 mt-4');
+      token.attrSet("class", "mb-4 mt-4");
     }
     return defaultRender(tokens, idx, options, env, self);
   };
@@ -108,18 +112,35 @@ export default component$(() => {
       <div class="d-flex justify-content-center mt-5 p-5">
         <div class="d-flex justify-content-center w-100">
           <div class="d-flex flex-row">
-            <div id="blog-content" class="d-flex flex-column gap-3 p-5 container">
-              <span class="terciary-color">{post.value.blog.Title}</span>
+            <div
+              id="blog-content"
+              class="d-flex flex-column gap-3 p-5 container"
+            >
+              <span class="terciary-color">{post.value.blog.title}</span>
               <span class="secondary-color">
-                {formatDate(post.value.blog.Date)} |{" "}
-                {post.value.blog.Short_Description}
+                {formatDate(post.value.blog.date)} |{" "}
+                {post.value.blog.short_description}
               </span>
-              <div class="mt-5 text-white text-break" id="markdown" style={{ "max-width": "550px", minWidth: "0" }} dangerouslySetInnerHTML={post.value.content}>
-                
-              </div>
+              <div
+                class="mt-5 text-white text-break"
+                id="markdown"
+                style={{ "max-width": "550px", minWidth: "0" }}
+                dangerouslySetInnerHTML={post.value.content}
+              ></div>
             </div>
 
-            <div id="blog-sub" class="p-5" style={{ minWidth: "100px", position: "sticky", top: "80px", alignSelf: "flex-start", height: "calc(100vh - 100px)", overflowY: "auto" }}>
+            <div
+              id="blog-sub"
+              class="p-5"
+              style={{
+                minWidth: "100px",
+                position: "sticky",
+                top: "80px",
+                alignSelf: "flex-start",
+                height: "calc(100vh - 100px)",
+                overflowY: "auto",
+              }}
+            >
               {post.value.subtitles.map((subtitle, index) => (
                 <a
                   key={index}
@@ -127,7 +148,10 @@ export default component$(() => {
                   href={`#${subtitle.replace(/\s+/g, "-")}`}
                 >
                   <div>
-                    <span class="secondary-color" style={{ fontSize: "0.8rem" }}>
+                    <span
+                      class="secondary-color"
+                      style={{ fontSize: "0.8rem" }}
+                    >
                       {subtitle}
                     </span>
                   </div>
@@ -144,11 +168,11 @@ export default component$(() => {
 export const head: DocumentHead = ({ resolveValue }) => {
   const post = resolveValue(usePost);
   return {
-    title: post.blog.Title,
+    title: post.blog.title,
     meta: [
       {
         name: "description",
-        content: post.blog.Short_Description,
+        content: post.blog.short_description,
       },
     ],
   };

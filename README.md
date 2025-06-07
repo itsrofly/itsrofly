@@ -77,7 +77,7 @@ Then visit [http://localhost:8080/](http://localhost:8080/)
 
 ## Deployment (Render.com)
 
-Build Command: 
+Build Command:
 Create a new web service with the following values:
   * Build Command: `yarn install --frozen-lockfile --production=false; yarn build` (dev dependencies are included because of qwik)
   * Start Command: `yarn serve`
@@ -85,3 +85,12 @@ Create a new web service with the following values:
 [Setting environment](https://render.com/docs/configure-environment-variables) variables:
   * NODE_ENV: `production`
   * ORIGIN: `https://example.com`
+
+## Environment Variables
+
+```bash
+PRIVATE_PG_USER=admin
+PRIVATE_PG_HOST=localhost
+PRIVATE_PG_DATABASE=mydb
+PRIVATE_PG_PASSWORD=password
+```

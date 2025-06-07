@@ -9,23 +9,24 @@ import {
   server$,
   type DocumentHead,
 } from "@builder.io/qwik-city";
-import { getBlogs, getProjects, getTags } from "~/tools";
+import { getBlogs, getProjects, getTags } from "~/util/db";
 
 export const usePosts = routeLoader$(async () => {
   // Fetch blog data
-  const blogs = getBlogs(1);
+  const blogs = await getBlogs(1);
   return blogs;
 });
 
 export const useTags = routeLoader$(async () => {
   // Fetch blog data
-  const tags = getTags();
+  const tags = await getTags();
   return tags;
 });
 
-export const loadProjects = server$(function (tag: number = -1) {
+export const loadProjects = server$(async function (tag: number = -1) {
   // Fetch blog data
-  const projects = getProjects(tag);
+  // Using server$ because this will run multiple times
+  const projects = await getProjects(tag);
   return projects;
 });
 
@@ -38,7 +39,6 @@ export default component$(() => {
     track(() => selecTag.value); // Re-run when selecTag.value changes
 
     // Fetch projects
-    // The server$ function useGetProjects will be awaited here
     const projects = await loadProjects(selecTag.value);
     return projects;
   });
@@ -114,16 +114,16 @@ export default component$(() => {
               {/* Latest 3 Posts */}
               {posts.value.map((post) => (
                 <a
-                  key={post.ID}
+                  key={post.id}
                   class="d-flex flex-row mb-5 link-underline link-underline-opacity-0"
-                  href={`/blog/${post.ID}`}
+                  href={`/blog/${post.id}`}
                 >
                   <div>
                     <span
                       class="secondary-color"
                       style={{ fontSize: "0.8rem" }}
                     >
-                      {new Date(post.Date).toLocaleDateString("en-US", {
+                      {new Date(post.date).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "long",
                         day: "2-digit",
@@ -132,14 +132,14 @@ export default component$(() => {
                   </div>
                   <div class="ms-4">
                     <div>
-                      <span class="terciary-color">{post.Title}</span>
+                      <span class="terciary-color">{post.title}</span>
                     </div>
                     <div>
                       <span
                         class="secondary-color"
                         style={{ fontSize: "0.8rem" }}
                       >
-                        {post.Short_Description}
+                        {post.short_description}
                       </span>
                     </div>
                   </div>
@@ -201,15 +201,15 @@ export default component$(() => {
 
               {tags.value.map((tag) => (
                 <button
-                  key={tag.ID}
+                  key={tag.id}
                   class={
                     "col-4 col-md-2 col-xxl-1 btn btn-outline-light" +
-                    (selecTag.value == tag.ID ? " active" : "")
+                    (selecTag.value == tag.id ? " active" : "")
                   }
-                  onClick$={() => (selecTag.value = tag.ID)}
+                  onClick$={() => (selecTag.value = tag.id)}
                   style={{ "--bs-btn-padding-y": "0.1rem" }}
                 >
-                  {tag.Name}
+                  {tag.name}
                 </button>
               ))}
             </div>
@@ -231,23 +231,23 @@ export default component$(() => {
                 <>
                   {projects.map((project) => (
                     <div
-                      key={project.ID}
+                      key={project.id}
                       class="card bg-transparent border ps-3 pt-3"
                       style={{ width: "220px", height: "150px" }}
                     >
                       <a
                         class="terciary-color link-underline link-underline-opacity-0"
-                        href={project.URL}
+                        href={project.url}
                       >
-                        {project.Title}
+                        {project.title}
                       </a>
                       <span class="secondary-color">
-                        {project.Short_Description}
+                        {project.short_description}
                       </span>
-                      {project.Blog_ID && (
+                      {project.blog_id && (
                         <a
                           class="mt-2 primary-color link-underline link-underline-opacity-0"
-                          href={`/blog/${project.Blog_ID}`}
+                          href={`/blog/${project.blog_id}`}
                         >
                           Read Blog
                         </a>
