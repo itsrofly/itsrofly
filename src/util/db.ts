@@ -52,7 +52,7 @@ export const setupDatabase = async (pool: Pool): Promise<void> => {
     // Ensure tables exist. SERIAL is PostgreSQL's equivalent for AUTOINCREMENT.
     // TIMESTAMP is generally preferred over DATETIME in PostgreSQL.
     await client.query(`
-      CREATE TABLE home (
+      CREATE TABLE IF NOT EXISTS home (
           id SERIAL PRIMARY KEY,
           descriptions TEXT UNIQUE NOT NULL
       );
@@ -95,7 +95,6 @@ export const getBlog = async (id: string): Promise<Blog | null> => {
       "SELECT * FROM Blogs WHERE ID = $1",
       [id],
     );
-    console.log(result.rows[0]);
     return result.rows[0] || null;
   } finally {
     client.release();
@@ -115,7 +114,6 @@ export const getBlogs = async (limit: number = 0): Promise<Blog[]> => {
     }
 
     const result = await client.query<Blog>(query, queryParams);
-    console.log(result.rows);
     return result.rows;
   } finally {
     client.release();
