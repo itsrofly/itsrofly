@@ -123,7 +123,7 @@ export default component$(() => {
                 class="mt-5 text-white text-break"
                 id="markdown"
                 style={{
-                  "max-width": "calc(100vw - 300px)",
+                  "max-width": "calc(100vw - 500px)",
                   minWidth: "0",
                 }}
                 dangerouslySetInnerHTML={post.value.content}
