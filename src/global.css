@@ -1,20 +1,21 @@
-@import 'prism-dracula.css';
+@import "prism-dracula.css";
 
 body {
-    background-color: #242424 !important;
-    font-family: "Nova Round" !important;
+  background-color: #242424 !important;
+  font-family: "Nova Round" !important;
 }
 
 .primary-color {
-    color: #87C9FF !important;
+  color: #87c9ff !important;
 }
 
+input::placeholder,
 .secondary-color {
-    color: #BEBEBE;
+  color: #bebebe !important;
 }
 
 .terciary-color {
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* width */
@@ -25,13 +26,13 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
+  background: #888;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
@@ -40,24 +41,26 @@ body {
 }
 
 .grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    row-gap: 60px;
-    column-gap: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  row-gap: 60px;
+  column-gap: 60px;
 }
 
 @media (max-width: 810px) {
-    #scroll, #latest-posts, #home-p2, #blog-sub {
-      display: none !important;
-    }
+  #scroll,
+  #latest-posts,
+  #home-p2,
+  #blog-sub {
+    display: none !important;
+  }
 
-    #markdown {
-        max-width: 300px !important;
-    }
+  #markdown {
+    max-width: calc(100vw - 50px) !important;
+  }
 
-    #description {
-        margin-top: 50px;
-        width: 250px;
-    }
+  #description {
+    margin-top: 50px;
+    width: 250px;
+  }
 }
-

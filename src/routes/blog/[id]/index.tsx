@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { Subscribe } from "~/components/newsletter/subscribe";
 import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
 import { getBlog } from "~/util/db";
 import MarkdownIt from "markdown-it";
@@ -112,10 +113,7 @@ export default component$(() => {
       <div class="d-flex justify-content-center mt-5 p-5">
         <div class="d-flex justify-content-center w-100">
           <div class="d-flex flex-row">
-            <div
-              id="blog-content"
-              class="d-flex flex-column gap-3 p-5 container"
-            >
+            <div id="blog-content" class="d-flex flex-column gap-3 container">
               <span class="terciary-color">{post.value.blog.title}</span>
               <span class="secondary-color">
                 {formatDate(post.value.blog.date)} |{" "}
@@ -124,9 +122,15 @@ export default component$(() => {
               <div
                 class="mt-5 text-white text-break"
                 id="markdown"
-                style={{ "max-width": "550px", minWidth: "0" }}
+                style={{
+                  "max-width": "calc(100vw - 300px)",
+                  minWidth: "0",
+                }}
                 dangerouslySetInnerHTML={post.value.content}
               ></div>
+              <div class="mt-5">
+                <Subscribe />
+              </div>
             </div>
 
             <div
