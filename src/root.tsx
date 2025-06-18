@@ -34,9 +34,20 @@ export default component$(() => {
           />
         )}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com"  crossOrigin="anonymous"/>
-        <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
-        </link>
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap"
+          rel="stylesheet"
+        ></link>
+        <script
+          defer
+          data-domain="itsrofly.com"
+          src="https://plausible.itsrofly.com/js/script.js"
+        ></script>
         <RouterHead />
       </head>
       <body lang="en">
