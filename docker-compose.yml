@@ -2,6 +2,7 @@ services:
   postgres:
     image: postgres:latest
     restart: always
+    profiles: ["local"] # Added this line
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
@@ -14,12 +15,12 @@ services:
   website:
     build: .
     environment:
-      PRIVATE_PG_USER: admin
-      PRIVATE_PG_HOST: postgres
-      PRIVATE_PG_DATABASE: mydb
-      PRIVATE_PG_PASSWORD: password
-    ports:
-      - "4000:4000"
+      PRIVATE_PG_USER: ${PRIVATE_PG_USER:-admin} # Modified this line
+      PRIVATE_PG_HOST: ${PRIVATE_PG_HOST:-postgres} # Modified this line
+      PRIVATE_PG_DATABASE: ${PRIVATE_PG_DATABASE:-mydb} # Modified this line
+      PRIVATE_PG_PASSWORD: ${PRIVATE_PG_PASSWORD:-password} # Modified this line
+    #    ports:
+    #      - "4000:4000"
     restart: always
 
 volumes:
