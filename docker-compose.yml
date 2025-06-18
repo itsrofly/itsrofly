@@ -19,8 +19,8 @@ services:
       PRIVATE_PG_HOST: ${PRIVATE_PG_HOST:-postgres} # Modified this line
       PRIVATE_PG_DATABASE: ${PRIVATE_PG_DATABASE:-mydb} # Modified this line
       PRIVATE_PG_PASSWORD: ${PRIVATE_PG_PASSWORD:-password} # Modified this line
-    #    ports:
-    #      - "4000:4000"
+    ports:
+      - "8000:4000"
     restart: always
 
 volumes:
