@@ -46,8 +46,9 @@ export default component$(() => {
         <script
           defer
           data-domain="itsrofly.com"
-          src="https://plausible.itsrofly.com/js/script.js"
+          src="https://plausible.itsrofly.com/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"
         ></script>
+
         <RouterHead />
       </head>
       <body lang="en">

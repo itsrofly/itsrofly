@@ -512,19 +512,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@modular-forms/qwik@npm:^0.29.1":
-  version: 0.29.1
-  resolution: "@modular-forms/qwik@npm:0.29.1"
-  dependencies:
-    decode-formdata: "npm:^0.8.0"
-    valibot: "npm:^1.0.0-beta.6"
-  peerDependencies:
-    "@builder.io/qwik": ^1.9.0 || ^2.0.0
-    "@builder.io/qwik-city": ^1.9.0 || ^2.0.0
-  checksum: 10c0/48e9d4db85cf1c4c966f73d3f5dd15c3537fd542f9af3eba1fb10ed9fcca3524da87fc7fe607c31335995020fefcb975dc28c034ddb9bf130aa20b00f61ec425
-  languageName: node
-  linkType: hard
-
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -1837,13 +1824,6 @@ __metadata:
     supports-color:
       optional: true
   checksum: 10c0/db94f1a182bf886f57b4755f85b3a74c39b5114b9377b7ab375dc2cfa3454f09490cc6c30f829df3fc8042bc8b8995f6567ce5cd96f3bc3688bd24027197d9de
-  languageName: node
-  linkType: hard
-
-"decode-formdata@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "decode-formdata@npm:0.8.0"
-  checksum: 10c0/95bc6c1c2d446b30faaabcd17ee32bb0705be9c2cd4440f890de6b5a0a828d45bc0de4128cdbafe9bf20e0a3f5b0c84e227e0d5c31b06ec18b6af94b3dd1aa6e
   languageName: node
   linkType: hard
 
@@ -4342,7 +4322,6 @@ __metadata:
   dependencies:
     "@builder.io/qwik": "npm:^1.12.1"
     "@builder.io/qwik-city": "npm:^1.12.1"
-    "@modular-forms/qwik": "npm:^0.29.1"
     "@types/bootstrap": "npm:5"
     "@types/compression": "npm:^1.7.2"
     "@types/eslint": "npm:8.56.10"
@@ -6051,7 +6030,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"valibot@npm:>=0.36.0 <2, valibot@npm:^1.0.0-beta.6":
+"valibot@npm:>=0.36.0 <2":
   version: 1.1.0
   resolution: "valibot@npm:1.1.0"
   peerDependencies:
