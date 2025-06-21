@@ -23,7 +23,7 @@ services:
       PRIVATE_EMAIL: ${PRIVATE_EMAIL:-me@itsrofly.com}
       PRIVATE_EMAIL_API: ${PRIVATE_EMAIL_API:-https://mail.itsrofly.com/api/v1}
       PRIVATE_EMAIL_ACCESS_KEY: ${PRIVATE_EMAIL_ACCESS_KEY}
-      PRIVATE_WEBSITE_URL: ${SERVICE_WEBSITE}
+      PRIVATE_WEBSITE_URL: ${PRIVATE_WEBSITE_URL}
     ports:
       - "4000:4000"
     restart: always
