@@ -1,12 +1,12 @@
 services:
   postgres:
-    image: postgres:latest
+    image: supabase/postgres:17.4.1.032
     restart: always
     profiles: ["local"] # Runs only when it's need
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydb
+      POSTGRES_DB: postgres
     ports:
       - "5432:5432"
     volumes:
@@ -17,8 +17,12 @@ services:
     environment:
       PRIVATE_PG_USER: ${PRIVATE_PG_USER:-admin} # Modified this line
       PRIVATE_PG_HOST: ${PRIVATE_PG_HOST:-postgres} # Modified this line
-      PRIVATE_PG_DATABASE: ${PRIVATE_PG_DATABASE:-mydb} # Modified this line
+      PRIVATE_PG_DATABASE: ${PRIVATE_PG_DATABASE:-postgres} # Modified this line
       PRIVATE_PG_PASSWORD: ${PRIVATE_PG_PASSWORD:-password} # Modified this line
+      PRIVATE_EMAIL_NAME: "${PRIVATE_EMAIL_NAME:-Rofly António}"
+      PRIVATE_EMAIL: ${PRIVATE_EMAIL:-me@itsrofly.com}
+      PRIVATE_EMAIL_API: ${PRIVATE_EMAIL_API:-https://mail.itsrofly.com/api/v1}
+      PRIVATE_EMAIL_ACCESS_KEY: "${PRIVATE_EMAIL_ACCESS_KEY}"
     ports:
       - "4000:4000"
     restart: always

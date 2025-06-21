@@ -90,7 +90,7 @@ export default component$(() => {
             <div class="mt-3">
               {/* Contact Me Button */}
               <a
-                href="mailto:contact@itsrofly.com"
+                href="mailto:me@itsrofly.com"
                 class="btn btn-outline-light"
                 role="button"
                 style={{ "--bs-btn-padding-x": "2.5rem" }}
