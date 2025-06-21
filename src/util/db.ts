@@ -89,8 +89,8 @@ export const setupDatabase = async (pool: Pool): Promise<void> => {
           FOREIGN KEY (blog_id) REFERENCES blogs(id) ON DELETE SET NULL
       );
 
-      CREATE ROLE supabase_admin WITH LOGIN SUPERUSER;
-      CREATE EXTENSION IF NOT EXISTS pg_cron;
+      -- CREATE ROLE supabase_admin WITH LOGIN SUPERUSER;
+      -- CREATE EXTENSION IF NOT EXISTS pg_cron;
       DO $$
       BEGIN
         -- 1. Create 'tokens' table if it doesn't exist
