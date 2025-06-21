@@ -48,6 +48,7 @@ export const serverEmail = server$(async function (email: string) {
 export const Subscribe = component$(() => {
   const email = useSignal("");
   const feedback = useSignal("");
+  const disableButton = useSignal(false);
   return (
     <div class="d-flex w-100 justify-content-center">
       <div
@@ -73,8 +74,11 @@ export const Subscribe = component$(() => {
             class="btn btn-outline-light"
             role="button"
             style={{ "--bs-btn-padding-x": "2.5rem", width: "250px" }}
+            disabled={disableButton.value}
             onClick$={$(async () => {
+              disableButton.value = true;
               feedback.value = await serverEmail(email.value);
+              disableButton.value = false;
             })}
           >
             Subscribe
