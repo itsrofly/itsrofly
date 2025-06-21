@@ -19,12 +19,6 @@ export async function initializeDb(factory: () => Promise<Pool>) {
   }
 }
 
-// Database Management
-export interface Home {
-  id: number;
-  descriptions: string;
-}
-
 export interface Blog {
   id: number;
   title: string;
@@ -59,11 +53,6 @@ export const setupDatabase = async (pool: Pool): Promise<void> => {
   const client = await pool.connect();
   try {
     await client.query(`
-      CREATE TABLE IF NOT EXISTS home (
-          id SERIAL PRIMARY KEY,
-          descriptions TEXT UNIQUE NOT NULL
-      );
-
       CREATE TABLE IF NOT EXISTS tags (
           id SERIAL PRIMARY KEY,
           name TEXT UNIQUE NOT NULL

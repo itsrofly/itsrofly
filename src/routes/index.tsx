@@ -76,14 +76,20 @@ export default component$(() => {
             <div class="mb-3">
               <span class="secondary-color text-break">
                 {/* First Description */}
-                .................................................................................................................................................................................................................................................................................................
+                Passionate about building intelligent solutions and developer
+                tools. I thrive at the intersection of innovation and usability,
+                designing systems that are both powerful and intuitive.
               </span>
             </div>
 
             <div class="mb-5">
               {/* Second Description */}
               <span class="secondary-color text-break">
-                .................................................................................................................................................................................................................................................................................................
+                With a strong foundation in full-stack development and a growing
+                focus on AI integration, I enjoy solving complex problems,
+                automating workflows, and pushing the boundaries of what
+                software can do. Always learning, always building, driven by
+                curiosity and a desire to make technology more human-centered.
               </span>
             </div>
 
