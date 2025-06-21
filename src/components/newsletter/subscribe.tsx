@@ -11,7 +11,7 @@ export const serverEmail = server$(async function (email: string) {
   });
 
   const validate = emailSchema.safeParse(email);
-  if (validate.error) return validate.error.message;
+  if (validate.error) return validate.error.issues[0].message;
 
   const url =
     import.meta.env.PUBLIC_API_URL +
@@ -41,6 +41,7 @@ export const serverEmail = server$(async function (email: string) {
     options,
   );
   if (!result.ok) return "Something has gone wrong!";
+  console.error(result.body);
   return "Confirmation e-mail sent!";
 });
 
