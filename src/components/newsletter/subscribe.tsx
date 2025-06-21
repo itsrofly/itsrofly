@@ -98,10 +98,14 @@ export const htmlSubscription = (url: string) => `
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+      </style>
+      <style>
         * {
           box-sizing: border-box;
         }
 
+        	table {font-family: "Nova Round" !important;}
 
         a[x-apple-data-detectors] {
           color: inherit !important;
@@ -188,10 +192,6 @@ export const htmlSubscription = (url: string) => `
         text-size-adjust: none;
       "
     >
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap"
-      rel="stylesheet"
-    ></link>
       <table
         class="nl-container"
         width="100%"
@@ -199,17 +199,8 @@ export const htmlSubscription = (url: string) => `
         cellpadding="0"
         cellspacing="0"
         role="presentation"
-        style="
-          mso-table-lspace: 0pt;
-          mso-table-rspace: 0pt;
-          border-bottom: 1px solid #242424;
-          border-left: 1px solid #242424;
-          border-radius: 20px;
-          border-right: 1px solid #242424;
-          border-top: 1px solid #242424;
-          background-color: #242424 !important;
-        "
       >
+
         <tbody>
           <tr>
             <td>
@@ -221,18 +212,6 @@ export const htmlSubscription = (url: string) => `
                 cellpadding="0"
                 cellspacing="0"
                 role="presentation"
-                style="
-                  mso-table-lspace: 0pt;
-                  mso-table-rspace: 0pt
-                  mso-table-lspace: 0pt;
-                  mso-table-rspace: 0pt;
-                  border-bottom: 1px solid #242424;
-                  border-left: 1px solid #242424;
-                  border-radius: 20px;
-                  border-right: 1px solid #242424;
-                  border-top: 1px solid #242424;
-                  font-family: "Nova Round" !important;
-                  "
               >
                 <tbody>
                   <tr>
@@ -245,12 +224,15 @@ export const htmlSubscription = (url: string) => `
                         cellspacing="0"
                         role="presentation"
                         style="
-                          mso-table-lspace: 0pt;
-                          mso-table-rspace: 0pt;
-                          background-color: #242424;
                           color: #000000;
-                          width: 600px;
-                          margin: 0 auto;
+                          max-width:600px;
+                          border-bottom: 1px solid #242424;
+                          border-left: 1px solid #242424;
+                          border-radius: 20px;
+                          border-right: 1px solid #242424;
+                          border-top: 1px solid #242424;
+                          background-color: #242424;
+                          margin: auto;
                         "
                         width="600"
                       >
@@ -260,8 +242,6 @@ export const htmlSubscription = (url: string) => `
                               class="column column-1"
                               width="100%"
                               style="
-                                mso-table-lspace: 0pt;
-                                mso-table-rspace: 0pt;
                                 font-weight: 400;
                                 text-align: left;
                                 padding-bottom: 5px;
@@ -392,10 +372,10 @@ export const htmlSubscription = (url: string) => `
                                   <td
                                     class="pad"
                                     style="
-                                      padding-bottom: 20px;
-                                      padding-left: 55px;
-                                      padding-right: 20px;
-                                      padding-top: 20px;
+                                      padding-bottom: 30px;
+                                      padding-left: 30px;
+                                      padding-right: 30px;
+                                      padding-top: 30px;
                                     "
                                   >
                                     <div
@@ -492,10 +472,10 @@ export const htmlSubscription = (url: string) => `
                                   <td
                                     class="pad"
                                     style="
-                                      padding-bottom: 20px;
-                                      padding-left: 55px;
-                                      padding-right: 20px;
-                                      padding-top: 20px;
+                                      padding-bottom: 30px;
+                                      padding-left: 30px;
+                                      padding-right: 30px;
+                                      padding-top: 30px;
                                     "
                                   >
                                     <div
