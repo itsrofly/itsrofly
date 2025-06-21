@@ -1,6 +1,6 @@
 {
-  "name": "my-qwik-empty-starter",
-  "description": "Blank project with routing included",
+  "name": "itsrofly-portfolio",
+  "description": "The personal site of Rofly António – showcasing projects, blogs, and tools at the intersection of software engineering and AI.",
   "engines": {
     "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
   },
