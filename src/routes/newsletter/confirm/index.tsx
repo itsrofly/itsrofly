@@ -30,6 +30,7 @@ export default component$(() => {
   return (
     <div class="text-center mt-5">
       <span class="primary-color">Subscription Confirmed!</span>
+      <br></br>
       <span class="secondary-color" style={{ fontSize: "0.8rem" }}>
         You can close this page.
       </span>
