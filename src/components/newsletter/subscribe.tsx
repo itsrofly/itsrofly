@@ -454,7 +454,6 @@ export const htmlSubscription = (url: string) => `
                                           >Confirm subscription</span
                                         >
                                         </a>
-                                        >
                                     </div>
                                   </td>
                                 </tr>
