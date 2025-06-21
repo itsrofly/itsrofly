@@ -275,7 +275,8 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content: "ItsRofly Website",
+      content:
+        "The personal site of Rofly António – Software Engineer and AI Enthusiast. Discover projects, tools, and insights at the intersection of code and intelligence.",
     },
   ],
 };
