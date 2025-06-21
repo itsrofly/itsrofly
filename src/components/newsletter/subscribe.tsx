@@ -14,7 +14,7 @@ export const serverEmail = server$(async function (email: string) {
   if (validate.error) return validate.error.issues[0].message;
 
   const url =
-    this.env.get("PUBLIC_API_URL")! +
+    this.env.get("PRIVATE_WEBSITE_URL")! +
     `/newsletter/confirm?token=${await generateToken(email)}&email=${email}`;
 
   const payload = {
