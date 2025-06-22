@@ -57,6 +57,7 @@
     "jsonwebtoken": "^9.0.2",
     "markdown-it": "^14.1.0",
     "markdown-it-prism": "^3.0.0",
+    "markdown-it-video": "^0.6.3",
     "pg": "^8.16.0",
     "prismjs": "^1.30.0",
     "undici": "^7.10.0",

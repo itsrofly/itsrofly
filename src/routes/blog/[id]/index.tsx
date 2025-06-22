@@ -4,6 +4,8 @@ import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
 import { getBlog } from "~/util/db";
 import MarkdownIt from "markdown-it";
 import prism from "markdown-it-prism";
+// @ts-ignore
+import mdVideo from "markdown-it-video";
 
 export const usePost = routeLoader$(async (requestEvent) => {
   // Fetch post info
@@ -26,7 +28,13 @@ export const usePost = routeLoader$(async (requestEvent) => {
   // Custom renderer to add id to headings
   const md = new MarkdownIt();
   md.use(prism);
-
+  md.use(mdVideo, {
+    // <-- this use(package_name) is required
+    youtube: { width: "100%", height: "450vw" },
+    vimeo: { width: "100%", height: "450vw" },
+    vine: { width: "100%", height: "450vw", embed: "simple" },
+    prezi: { width: "100%", height: "450vw" },
+  });
   // Save original fence rule
   const defaultFenceRender =
     md.renderer.rules.fence ||

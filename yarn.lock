@@ -4130,6 +4130,7 @@ __metadata:
     jsonwebtoken: "npm:^9.0.2"
     markdown-it: "npm:^14.1.0"
     markdown-it-prism: "npm:^3.0.0"
+    markdown-it-video: "npm:^0.6.3"
     pg: "npm:^8.16.0"
     prettier: "npm:3.3.3"
     prismjs: "npm:^1.30.0"
@@ -4384,6 +4385,13 @@ __metadata:
   dependencies:
     prismjs: "npm:1.30.0"
   checksum: 10c0/eb6987b2b49f4447f291cf86daeacf0912088f9fbf904bc44c9b6f3a014f7f0ac7c3575c537917e7d530532c0fed875a44eaf387e0378ea19b4f936791bf43c3
+  languageName: node
+  linkType: hard
+
+"markdown-it-video@npm:^0.6.3":
+  version: 0.6.3
+  resolution: "markdown-it-video@npm:0.6.3"
+  checksum: 10c0/d354fcf5a39b3abf61ccc4ced6c972bde9be35849e65e7bf6c853e5aed38f7131df907226acf0c50663ca530b30ddc7888d98e0a187ca8c6313abdd0ddf54314
   languageName: node
   linkType: hard
 
