@@ -48,7 +48,10 @@ export default component$(() => {
           data-domain="itsrofly.com"
           src="https://plausible.itsrofly.com/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"
         ></script>
-
+        <meta
+          name="google-site-verification"
+          content="F2IA7D_CvFpIsgeXtYm3DrktGwVNn8jDkUiWuNfLOBY"
+        />
         <RouterHead />
       </head>
       <body lang="en">
