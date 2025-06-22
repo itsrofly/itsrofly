@@ -1,96 +1,12 @@
-# Qwik City App ⚡️
+# Hey, I’m Rofly António 👋  
+**Software Engineer | AI Enthusiast**
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+Passionate about building intelligent solutions and developer tools, I thrive at the intersection of innovation and usability. With a strong foundation in full-stack development and a growing focus on AI, I enjoy solving complex problems, automating workflows, and creating systems that are both powerful and intuitive.
+
+Driven by curiosity and a human-centered approach to technology — always learning, always building.
 
 ---
 
-## Project Structure
-
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
-
-Inside your project, you'll see the following directory structure:
-
-```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
-
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
-
-- `src/components`: Recommended directory for components.
-
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
-
-## Add Integrations and deployment
-
-Use the `yarn qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
-
-```shell
-yarn qwik add # or `yarn qwik add`
-```
-
-## Development
-
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
-
-```shell
-npm start # or `yarn start`
-```
-
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
-
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
-
-```shell
-yarn preview # or `yarn preview`
-```
-
-## Production
-
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
-
-```shell
-yarn build # or `yarn build`
-```
-
-## Express Server
-
-This app has a minimal [Express server](https://expressjs.com/) implementation. After running a full build, you can preview the build using the command:
-
-```
-yarn serve
-```
-
-Then visit [http://localhost:8080/](http://localhost:8080/)
-
-
-## Deployment (Render.com)
-
-Build Command:
-Create a new web service with the following values:
-  * Build Command: `yarn install --frozen-lockfile --production=false; yarn build` (dev dependencies are included because of qwik)
-  * Start Command: `yarn serve`
-
-[Setting environment](https://render.com/docs/configure-environment-variables) variables:
-  * NODE_ENV: `production`
-  * ORIGIN: `https://example.com`
-
-## Environment Variables
-
-```bash
-PRIVATE_PG_USER=admin
-PRIVATE_PG_HOST=localhost
-PRIVATE_PG_DATABASE=mydb
-PRIVATE_PG_PASSWORD=password
-```
+📫 **Contact Me**  
+📧 Email: [me@itsrofly.com](mailto:me@itsrofly.com)  
+🔗 LinkedIn: [linkedin.com/in/rofly](https://www.linkedin.com/in/rofly/)
