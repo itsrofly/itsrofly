@@ -1,4 +1,6 @@
 import { component$, useOn, $, useStyles$ } from "@builder.io/qwik";
+import * as Sentry from "@sentry/browser";
+
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -17,6 +19,10 @@ export default component$(() => {
    *
    * Don't remove the `<head>` and `<body>` elements.
    */
+  Sentry.init({
+    dsn: "https://12ce628bf8864d3fa06036e92d0c2801@glitchtip.itsrofly.com/1",
+    tracesSampleRate: 0.01,
+  });
   useOn(
     "qvisible",
     $(() => import("bootstrap")),
