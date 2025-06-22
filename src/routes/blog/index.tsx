@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
+import { type DocumentHead, routeLoader$, Link } from "@builder.io/qwik-city";
 import { getBlogs } from "~/util/db";
 
 export const usePosts = routeLoader$(async () => {
@@ -21,7 +21,7 @@ export default component$(() => {
 
           <div class="border-start d-flex flex-column gap-4 ps-5">
             {posts.value.map((post) => (
-              <a
+              <Link
                 key={post.id}
                 class="d-flex flex-row mb-5 link-underline link-underline-opacity-0"
                 href={`/blog/${post.id}`}
@@ -48,7 +48,7 @@ export default component$(() => {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

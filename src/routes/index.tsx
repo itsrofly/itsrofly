@@ -7,6 +7,7 @@ import {
 import {
   routeLoader$,
   server$,
+  Link,
   type DocumentHead,
 } from "@builder.io/qwik-city";
 import { getBlogs, getProjects, getTags } from "~/util/db";
@@ -95,14 +96,14 @@ export default component$(() => {
 
             <div class="mt-3">
               {/* Contact Me Button */}
-              <a
-                href="mailto:me@itsrofly.com"
+              <Link
+                href="/contact"
                 class="btn btn-outline-light"
                 role="button"
                 style={{ "--bs-btn-padding-x": "2.5rem" }}
               >
                 Contact Me
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -119,7 +120,7 @@ export default component$(() => {
             >
               {/* Latest 3 Posts */}
               {posts.value.map((post) => (
-                <a
+                <Link
                   key={post.id}
                   class="d-flex flex-row mb-5 link-underline link-underline-opacity-0"
                   href={`/blog/${post.id}`}
@@ -149,7 +150,7 @@ export default component$(() => {
                       </span>
                     </div>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -157,7 +158,7 @@ export default component$(() => {
 
         <div class="d-flex flex-row justify-content-center mt-4">
           {/* Scroll Down */}
-          <a
+          <Link
             id="scroll"
             class="d-inline-flex gap-3 link-underline link-underline-opacity-0"
             href="/#Projects"
@@ -178,7 +179,7 @@ export default component$(() => {
             <span class="primary-color" id="Projects">
               Scroll
             </span>
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -241,22 +242,22 @@ export default component$(() => {
                       class="card bg-transparent border ps-3 pt-3"
                       style={{ width: "220px", height: "150px" }}
                     >
-                      <a
+                      <Link
                         class="terciary-color link-underline link-underline-opacity-0"
                         href={project.url}
                       >
                         {project.title}
-                      </a>
+                      </Link>
                       <span class="secondary-color">
                         {project.short_description}
                       </span>
                       {project.blog_id && (
-                        <a
+                        <Link
                           class="mt-2 primary-color link-underline link-underline-opacity-0"
                           href={`/blog/${project.blog_id}`}
                         >
                           Read Blog
-                        </a>
+                        </Link>
                       )}
                     </div>
                   ))}

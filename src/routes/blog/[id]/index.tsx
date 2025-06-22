@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Subscribe } from "~/components/newsletter/subscribe";
-import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
+import { type DocumentHead, routeLoader$, Link } from "@builder.io/qwik-city";
 import { getBlog } from "~/util/db";
 import MarkdownIt from "markdown-it";
 import prism from "markdown-it-prism";
@@ -154,7 +154,7 @@ export default component$(() => {
               }}
             >
               {post.value.subtitles.map((subtitle, index) => (
-                <a
+                <Link
                   key={index}
                   class="d-flex flex-row link-underline link-underline-opacity-0"
                   href={`#${subtitle.replace(/\s+/g, "-")}`}
@@ -167,7 +167,7 @@ export default component$(() => {
                       {subtitle}
                     </span>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
