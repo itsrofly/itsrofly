@@ -3,7 +3,7 @@
 
 Passionate about building intelligent solutions and developer tools, I thrive at the intersection of innovation and usability. With a strong foundation in full-stack development and a growing focus on AI, I enjoy solving complex problems, automating workflows, and creating systems that are both powerful and intuitive.
 
-Driven by curiosity and a human-centered approach to technology — always learning, always building.
+Driven by curiosity and a human-centered approach to technology, always learning, always building.
 
 ---
 
