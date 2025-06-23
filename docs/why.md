@@ -1,4 +1,4 @@
-# Why a Personal Website is Essential for Your Portfolio and Blog
+# Why a Personal Website is Essential for Your Portfolio
 
 In today's digital landscape, a strong online presence is no longer just a luxury, it's a necessity. For software engineers, creators, and professionals alike, a personal website serves as your digital home base, offering full control over your narrative, showcasing your work, and connecting directly with your audience.
 
