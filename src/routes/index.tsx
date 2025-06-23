@@ -238,7 +238,7 @@ export default component$(() => {
                   aria-valuenow={100}
                   aria-valuemin={0}
                   aria-valuemax={100}
-                  style={{ height: "3px", width: "75vw" }}
+                  style={{ height: "3px", width: "50vw" }}
                 >
                   <div
                     class="progress-bar progress-bar-striped progress-bar-animated"
