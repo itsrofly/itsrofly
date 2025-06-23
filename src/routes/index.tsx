@@ -232,13 +232,13 @@ export default component$(() => {
               value={projectsResource}
               onPending={() => (
                 <div
-                  class="progress"
+                  class="progress mb-2"
                   role="progressbar"
                   aria-label="Animated striped example"
                   aria-valuenow={100}
                   aria-valuemin={0}
                   aria-valuemax={100}
-                  style={{ height: "3px", width: "100%" }}
+                  style={{ height: "3px", width: "75vw" }}
                 >
                   <div
                     class="progress-bar progress-bar-striped progress-bar-animated"
