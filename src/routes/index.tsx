@@ -230,7 +230,22 @@ export default component$(() => {
             {/* Projects */}
             <Resource
               value={projectsResource}
-              onPending={() => <p>Loading projects...</p>}
+              onPending={() => (
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-label="Animated striped example"
+                  aria-valuenow={100}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  style={{ height: "3px", width: "100%" }}
+                >
+                  <div
+                    class="progress-bar progress-bar-striped progress-bar-animated"
+                    style="width: 100%"
+                  ></div>
+                </div>
+              )}
               onRejected={(error) => (
                 <p>Error loading projects: {error.message}</p>
               )}
