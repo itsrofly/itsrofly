@@ -20,7 +20,7 @@ export const serverEmail = server$(async function (email: string) {
   const payload = {
     to: email,
     from: this.env.get("PRIVATE_EMAIL")!,
-    subject: "Confirm subscription to the blog",
+    subject: "Confirm subscription",
     html: htmlSubscription(url),
   };
 
@@ -90,411 +90,72 @@ export const Subscribe = component$(() => {
 });
 
 export const htmlSubscription = (url: string) => `
-  <!doctype html>
-  <html
-    lang="en"
-  >
+  <!DOCTYPE html>
+  <html lang="en">
     <head>
-      <title></title>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charset="UTF-8">
+      <title>Confirm Subscription</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
-      </style>
-      <style>
-        * {
-          box-sizing: border-box;
+        /* Prevent webmail clients from adding unwanted spacing */
+        body, table, td, a {
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
         }
-
-        	table {font-family: "Nova Round, Arial" !important;}
-
-        a[x-apple-data-detectors] {
-          color: inherit !important;
-          text-decoration: inherit !important;
+        table {
+          border-collapse: collapse !important;
         }
-
-        #MessageViewBody a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        p {
-          line-height: inherit;
-        }
-
-        .desktop_hide,
-        .desktop_hide table {
-          mso-hide: all;
-          display: none;
-          max-height: 0px;
-          overflow: hidden;
-        }
-
-        .image_block img + div {
-          display: none;
-        }
-
-        sup,
-        sub {
-          font-size: 75%;
-          line-height: 0;
-        }
-
-        @media (max-width: 620px) {
-          .desktop_hide table.icons-inner {
-            display: inline-block !important;
-          }
-
-          .icons-inner {
-            text-align: center;
-          }
-
-          .icons-inner td {
-            margin: 0 auto;
-          }
-
-          .mobile_hide {
-            display: none;
-          }
-
-          .row-content {
-            width: 100% !important;
-          }
-
-          .stack .column {
-            width: 100%;
-            display: block;
-          }
-
-          .mobile_hide {
-            min-height: 0;
-            max-height: 0;
-            max-width: 0;
-            overflow: hidden;
-            font-size: 0px;
-          }
-
-          .desktop_hide,
-          .desktop_hide table {
-            display: table !important;
-            max-height: none !important;
-          }
+        body {
+          margin: 0;
+          padding: 0;
+          width: 100% !important;
+          height: 100% !important;
         }
       </style>
     </head>
-
-    <body
-      class="body"
-      style="
-        background-color: transparent;
-        margin: 0;
-        padding: 0;
-        -webkit-text-size-adjust: none;
-        text-size-adjust: none;
-      "
-    >
-      <table
-        class="nl-container"
-        width="100%"
-        border="0"
-        cellpadding="0"
-        cellspacing="0"
-        role="presentation"
-      >
-
-        <tbody>
-          <tr>
-            <td>
-              <table
-                class="row row-1"
-                align="center"
-                width="100%"
-                border="0"
-                cellpadding="0"
-                cellspacing="0"
-                role="presentation"
-              >
-                <tbody>
-                  <tr>
-                    <td>
-                      <table
-                        class="row-content stack"
-                        align="center"
-                        border="0"
-                        cellpadding="0"
-                        cellspacing="0"
-                        role="presentation"
-                        style="
-                          color: #000000;
-                          max-width:600px;
-                          border-bottom: 1px solid #242424;
-                          border-left: 1px solid #242424;
-                          border-radius: 20px;
-                          border-right: 1px solid #242424;
-                          border-top: 1px solid #242424;
-                          background-color: #242424;
-                          margin: auto;
-                        "
-                        width="600"
-                      >
-                        <tbody>
-                          <tr>
-                            <td
-                              class="column column-1"
-                              width="100%"
-                              style="
-                                font-weight: 400;
-                                text-align: left;
-                                padding-bottom: 5px;
-                                padding-top: 5px;
-                                vertical-align: top;
-                              "
-                            >
-                              <table
-                                class="heading_block block-1"
-                                width="100%"
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                "
-                              >
-                                <tr>
-                                  <td
-                                    class="pad"
-                                    style="
-                                      padding-left: 30px;
-                                      padding-right: 15px;
-                                      padding-top: 15px;
-                                      text-align: center;
-                                      width: 100%;
-                                    "
-                                  >
-                                  </td>
-                                </tr>
-                              </table>
-                              <table
-                                class="divider_block block-2"
-                                width="100%"
-                                border="0"
-                                cellpadding="10"
-                                cellspacing="0"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                "
-                              >
-                                <tr>
-                                  <td class="pad">
-                                    <div class="alignment" align="center">
-                                      <table
-                                        border="0"
-                                        cellpadding="0"
-                                        cellspacing="0"
-                                        role="presentation"
-                                        width="100%"
-                                        style="
-                                          mso-table-lspace: 0pt;
-                                          mso-table-rspace: 0pt;
-                                        "
-                                      >
-                                        <tr>
-                                          <td
-                                            class="divider_inner"
-                                            style="
-                                              font-size: 1px;
-                                              line-height: 1px;
-                                              border-top: 1px solid #dddddd;
-                                            "
-                                          >
-                                            <span style="word-break: break-word"
-                                              >&#8202;</span
-                                            >
-                                          </td>
-                                        </tr>
-                                      </table>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                              <table
-                                class="paragraph_block block-3"
-                                width="100%"
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                  word-break: break-word;
-                                "
-                              >
-                                <tr>
-                                  <td
-                                    class="pad"
-                                    style="
-                                      padding-bottom: 30px;
-                                      padding-left: 30px;
-                                      padding-right: 30px;
-                                      padding-top: 30px;
-                                    "
-                                  >
-                                    <div
-                                      style="
-                                        color: #ffffff;
-                                        direction: ltr;
-
-                                        font-size: 16px;
-                                        font-weight: 400;
-                                        letter-spacing: 0px;
-                                        line-height: 1.2;
-                                        text-align: left;
-                                        mso-line-height-alt: 19px;
-                                      "
-                                    >
-                                      <p style="margin: 0; margin-bottom: 16px">
-                                        Hey,
-                                      </p>
-                                      <p style="margin: 0">
-                                        Let's confirm your subscription, there's
-                                        just one more step to make:
-                                      </p>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                              <table
-                                class="button_block block-4"
-                                width="100%"
-                                border="0"
-                                cellpadding="10"
-                                cellspacing="0"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                "
-                              >
-                                <tr>
-                                  <td class="pad">
-                                    <div class="alignment" align="center">
-                                      <a
-                                        class="button"
-                                        href="${url}"
-                                        style="
-                                          background-color: transparent;
-                                          border-bottom: 1px solid #87c9ff;
-                                          border-left: 1px solid #87c9ff;
-                                          border-radius: 4px;
-                                          border-right: 1px solid #87c9ff;
-                                          border-top: 1px solid #87c9ff;
-                                          color: #87c9ff;
-                                          display: inline-block;
-
-                                          font-size: 16px;
-                                          font-weight: 400;
-                                          mso-border-alt: none;
-                                          padding-bottom: 5px;
-                                          padding-top: 5px;
-                                          padding-left: 20px;
-                                          padding-right: 20px;
-                                          text-align: center;
-                                          width: auto;
-                                          word-break: keep-all;
-                                          letter-spacing: normal;
-                                        "
-                                        ><span
-                                          style="
-                                            word-break: break-word;
-                                            line-height: 32px;
-                                          "
-                                          >Confirm subscription</span
-                                        >
-                                        </a>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                              <table
-                                class="paragraph_block block-5"
-                                width="100%"
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                  word-break: break-word;
-                                "
-                              >
-                                <tr>
-                                  <td
-                                    class="pad"
-                                    style="
-                                      padding-bottom: 30px;
-                                      padding-left: 30px;
-                                      padding-right: 30px;
-                                      padding-top: 30px;
-                                    "
-                                  >
-                                    <div
-                                      style="
-                                        color: #ffffff;
-                                        direction: ltr;
-
-                                        font-size: 16px;
-                                        font-weight: 400;
-                                        letter-spacing: 0px;
-                                        line-height: 1.2;
-                                        text-align: left;
-                                        mso-line-height-alt: 19px;
-                                      "
-                                    >
-                                      <p style="margin: 0; margin-bottom: 16px">
-                                        I ask for this confirmation only once, to
-                                        make sure it was really you who sent this
-                                        request.&nbsp;
-                                      </p>
-                                      <p style="margin: 0; margin-bottom: 16px">
-                                        Thanks for subscribing!
-                                      </p>
-                                      <p style="margin: 0">
-                                        <span
-                                          style="
-                                            word-break: break-word;
-                                            color: #bebebe;
-                                          "
-                                          >Sincerely,</span
-                                        ><br /><span
-                                          style="
-                                            word-break: break-word;
-                                            color: #bebebe;
-                                          "
-                                          >Rofly António</span
-                                        >
-                                      </p>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
+    <body style="margin:0;padding:0;background:#ffffff;font-family:proxima-nova,'helvetica neue',helvetica,arial,geneva,sans-serif;color:#4c4c4c;font-size:15px;line-height:150%">
+      <table width="100%" style="height:100%;background:#ffffff;font-family:inherit;color:inherit;font-size:inherit;line-height:inherit">
+        <tr>
+          <td align="center">
+            <table width="600" style="background:#ffffff;margin:40px 0;font-family:inherit;color:inherit;font-size:inherit;line-height:inherit">
+              <tr>
+                <td style="padding:0 40px">
+                  <table width="100%" style="background:#ffffff;font-family:inherit;color:inherit;font-size:inherit;line-height:inherit">
+                    <tr>
+                      <td align="left" style="padding:0">
+                        <p style="margin:20px 0">
+                          Thanks for subscribing! You must follow this link within 30 minutes to confirm your subscription:
+                        </p>
+                        <p style="margin:20px 0">
+                          <a href="${url}" style="color:#87c9ff" target="_blank">${url}</a>
+                        </p>
+                        <p style="margin:20px 0">
+                          Have a good reading, and don't hesitate to contact me with your feedback.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:0 40px">
+                  <table width="100%" style="border-top:1px solid #ebeaef;background:#ffffff;font-family:inherit;color:inherit;font-size:inherit;line-height:inherit">
+                    <tr>
+                      <td align="left" style="padding:0">
+                        <p style="margin:20px 0">
+                          Rofly António<br>
+                          Sincerely
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
       </table>
     </body>
   </html>
+
 `;

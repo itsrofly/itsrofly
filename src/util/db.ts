@@ -4,7 +4,7 @@ import crypto from "crypto";
 
 // Accessing Database in Serverfull Architecture
 let _db!: Pool | undefined;
-const TOKEN_EXPIRES_IN_MINUTES = 10;
+const TOKEN_EXPIRES_IN_MINUTES = 30;
 
 export function getDB() {
   if (!_db) {
@@ -185,7 +185,7 @@ export async function generateToken(email: string): Promise<string> {
   // 1. Generate a random secret for this token
   const jwtSecret = crypto.randomBytes(32).toString("hex");
 
-  // 2. Create JWT with 10-minute expiration
+  // 2. Create JWT with TOKEN_EXPIRES_IN_MINUTES-minute expiration
   const token = jwt.sign({ email }, jwtSecret, {
     expiresIn: `${TOKEN_EXPIRES_IN_MINUTES}m`,
   });
