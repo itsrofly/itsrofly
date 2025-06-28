@@ -127,7 +127,9 @@ export const htmlSubscription = (url: string) => `
                           Thanks for subscribing! You must follow this link within 30 minutes to confirm your subscription:
                         </p>
                         <p style="margin:20px 0">
-                          <a href="${url}" style="color:#87c9ff" target="_blank">${url}</a>
+                          <a href="${url}" style="color:#87c9ff" target="_blank">
+                          ${url.length > 39 ? url.slice(0, 39) + "..." : url}
+                          </a>
                         </p>
                         <p style="margin:20px 0">
                           Have a good reading, and don't hesitate to contact me with your feedback.
