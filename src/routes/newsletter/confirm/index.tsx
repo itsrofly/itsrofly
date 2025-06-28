@@ -13,7 +13,7 @@ export const onGet: RequestHandler = async ({ query, error, env }) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: env.get("PRIVATE_EMAIL_ACCESS_KEY")!,
+      Authorization: "Bearer " + env.get("PRIVATE_EMAIL_ACCESS_KEY")!,
     },
     body: JSON.stringify({ email: email, subscribed: true }),
   };
