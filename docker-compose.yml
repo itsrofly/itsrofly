@@ -20,11 +20,11 @@ services:
       PRIVATE_PG_HOST: ${PRIVATE_PG_HOST:-postgres} # Modified this line
       PRIVATE_PG_DATABASE: ${PRIVATE_PG_DATABASE:-postgres} # Modified this line
       PRIVATE_PG_PASSWORD: ${PRIVATE_PG_PASSWORD:-password} # Modified this line
-      PRIVATE_EMAIL_NAME: "${PRIVATE_EMAIL_NAME:-Rofly António}"
       PRIVATE_EMAIL: ${PRIVATE_EMAIL:-me@itsrofly.com}
-      PRIVATE_EMAIL_API: ${PRIVATE_EMAIL_API:-https://mail.itsrofly.com/api/v1}
+      PRIVATE_EMAIL_API: ${PRIVATE_EMAIL_API:-https://unsend.itsrofly.com/api}
+      PRIVATE_EMAIL_CONTACT_ID: ${PRIVATE_EMAIL_CONTACT_ID:-cmcggzo0a0006s4306syenex0}
       PRIVATE_EMAIL_ACCESS_KEY: ${PRIVATE_EMAIL_ACCESS_KEY}
-      PRIVATE_WEBSITE_URL: ${PRIVATE_WEBSITE_URL}
+      PRIVATE_WEBSITE_URL: ${PRIVATE_WEBSITE_URL:-https://itsrofly.com}
     ports:
       - "4000:4000"
     restart: always

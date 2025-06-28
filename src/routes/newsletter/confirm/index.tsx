@@ -15,14 +15,16 @@ export const onGet: RequestHandler = async ({ query, error, env }) => {
       "Content-Type": "application/json",
       Authorization: env.get("PRIVATE_EMAIL_ACCESS_KEY")!,
     },
-    body: JSON.stringify({ email: email }),
+    body: JSON.stringify({ email: email, subscribed: true }),
   };
 
   const result = await fetch(
-    env.get("PRIVATE_EMAIL_API")! + "/contacts/subscribe",
+    env.get("PRIVATE_EMAIL_API")! +
+      `/v1/contactBooks/${env.get("PRIVATE_EMAIL_CONTACT_ID")!}/contacts`,
     options,
   );
-  if (!result.ok) throw error(500, "Something has gone wrong!");
+  if (!result.ok)
+    throw error(500, "Something has gone wrong, Please try again later.");
   console.error(result.body);
 };
 

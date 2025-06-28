@@ -19,30 +19,27 @@ export const serverEmail = server$(async function (email: string) {
 
   const payload = {
     to: email,
-    subject: "Confirm subscription to the blog",
-    body: htmlSubscription(url),
-    subscribed: false,
-    name: this.env.get("PRIVATE_EMAIL_NAME")!,
     from: this.env.get("PRIVATE_EMAIL")!,
-    headers: {},
+    subject: "Confirm subscription to the blog",
+    html: htmlSubscription(url),
   };
 
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: this.env.get("PRIVATE_EMAIL_ACCESS_KEY")!,
+      Authorization: "Bearer " + this.env.get("PRIVATE_EMAIL_ACCESS_KEY")!,
     },
     body: JSON.stringify(payload),
   };
 
   const result = await fetch(
-    this.env.get("PRIVATE_EMAIL_API")! + "/send",
+    this.env.get("PRIVATE_EMAIL_API")! + "/v1/emails",
     options,
   );
-  if (!result.ok) return "Something has gone wrong!";
+  if (!result.ok) return "Please try again later.";
   console.error(result.body);
-  return "Confirmation e-mail sent!";
+  return "Confirmation e-mail sent.";
 });
 
 export const Subscribe = component$(() => {
