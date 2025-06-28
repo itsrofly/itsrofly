@@ -145,8 +145,8 @@ export const htmlSubscription = (url: string) => `
                     <tr>
                       <td align="left" style="padding:0">
                         <p style="margin:20px 0">
-                          Rofly António<br>
-                          Sincerely
+                          Sincerely,<br>
+                          Rofly António
                         </p>
                       </td>
                     </tr>
