@@ -106,7 +106,7 @@ export const htmlSubscription = (url: string) => `
           box-sizing: border-box;
         }
 
-        	table {font-family: "Nova Round" !important;}
+        	table {font-family: "Nova Round, Arial" !important;}
 
         a[x-apple-data-detectors] {
           color: inherit !important;
@@ -266,7 +266,6 @@ export const htmlSubscription = (url: string) => `
                                   <td
                                     class="pad"
                                     style="
-                                      padding-bottom: 15px;
                                       padding-left: 30px;
                                       padding-right: 15px;
                                       padding-top: 15px;
@@ -274,40 +273,6 @@ export const htmlSubscription = (url: string) => `
                                       width: 100%;
                                     "
                                   >
-                                    <h1
-                                      style="
-                                        margin: 0;
-                                        color: #837d96;
-                                        direction: ltr;
-
-                                        font-size: 32px;
-                                        font-weight: 700;
-                                        letter-spacing: normal;
-                                        line-height: 1.2;
-                                        text-align: left;
-                                        margin-top: 0;
-                                        margin-bottom: 0;
-                                        mso-line-height-alt: 38px;
-                                      "
-                                    >
-                                      <span
-                                        class="tinyMce-placeholder"
-                                        style="word-break: break-word"
-                                        ><span
-                                          style="
-                                            word-break: break-word;
-                                            color: #ffffff;
-                                          "
-                                          >Its</span
-                                        ><span
-                                          style="
-                                            word-break: break-word;
-                                            color: #87c9ff;
-                                          "
-                                          >Rofly</span
-                                        ></span
-                                      >
-                                    </h1>
                                   </td>
                                 </tr>
                               </table>
