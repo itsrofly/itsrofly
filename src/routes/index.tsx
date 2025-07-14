@@ -254,7 +254,7 @@ export default component$(() => {
                   {projects.map((project) => (
                     <div
                       key={project.id}
-                      class="card bg-transparent border ps-3 pt-3"
+                      class="card bg-transparent border p-3"
                       style={{ width: "220px", height: "150px" }}
                     >
                       <Link
@@ -264,7 +264,7 @@ export default component$(() => {
                         {project.title}
                       </Link>
                       <span
-                        class="mt-1 secondary-color"
+                        class="secondary-color"
                         style={{ fontSize: "0.8rem" }}
                       >
                         {new Date(project.date).toLocaleDateString("en-US", {
@@ -273,20 +273,15 @@ export default component$(() => {
                           day: "2-digit",
                         })}
                       </span>
-                      <span class="mt-2 secondary-color">
+                      <span
+                        class="mt-1 terciary-color"
+                        style={{ fontSize: "0.9rem" }}
+                      >
                         {project.short_description}
                       </span>
-                      {project.blog_id && (
-                        <Link
-                          class="mt-1 primary-color link-underline link-underline-opacity-0"
-                          href={`/blog/${project.blog_id}`}
-                        >
-                          Read Blog
-                        </Link>
-                      )}
                       {project.attach_name && (
                         <Link
-                          class="mt-1 primary-color link-underline link-underline-opacity-0"
+                          class="primary-color link-underline link-underline-opacity-0"
                           href={`${project.attach_url}`}
                         >
                           {project.attach_name}

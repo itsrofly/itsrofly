@@ -36,7 +36,6 @@ export interface Project {
   attach_url: string;
   short_description: string;
   tags_id: string;
-  techs: string;
   blog_id: number | null;
 }
 
@@ -77,8 +76,6 @@ export const setupDatabase = async (pool: Pool): Promise<void> => {
           attach_name TEXT,
           attach_url TEXT,
           tags_id TEXT,  -- Comma-separated tag IDs
-          techs TEXT,    -- Comma-separated base64 strings
-          blog_id INTEGER,
           FOREIGN KEY (blog_id) REFERENCES blogs(id) ON DELETE SET NULL
       );
 
