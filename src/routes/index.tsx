@@ -263,15 +263,33 @@ export default component$(() => {
                       >
                         {project.title}
                       </Link>
-                      <span class="secondary-color">
+                      <span
+                        class="mt-1 secondary-color"
+                        style={{ fontSize: "0.8rem" }}
+                      >
+                        {new Date(project.date).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "2-digit",
+                        })}
+                      </span>
+                      <span class="mt-2 secondary-color">
                         {project.short_description}
                       </span>
                       {project.blog_id && (
                         <Link
-                          class="mt-2 primary-color link-underline link-underline-opacity-0"
+                          class="mt-1 primary-color link-underline link-underline-opacity-0"
                           href={`/blog/${project.blog_id}`}
                         >
                           Read Blog
+                        </Link>
+                      )}
+                      {project.attach_name && (
+                        <Link
+                          class="mt-1 primary-color link-underline link-underline-opacity-0"
+                          href={`${project.attach_url}`}
+                        >
+                          {project.attach_name}
                         </Link>
                       )}
                     </div>

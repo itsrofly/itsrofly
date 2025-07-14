@@ -32,6 +32,8 @@ export interface Project {
   title: string;
   url: string;
   date: string;
+  attach_name: string;
+  attach_url: string;
   short_description: string;
   tags_id: string;
   techs: string;
@@ -72,6 +74,8 @@ export const setupDatabase = async (pool: Pool): Promise<void> => {
           url TEXT NOT NULL,
           date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
           short_description TEXT,
+          attach_name TEXT,
+          attach_url TEXT,
           tags_id TEXT,  -- Comma-separated tag IDs
           techs TEXT,    -- Comma-separated base64 strings
           blog_id INTEGER,
