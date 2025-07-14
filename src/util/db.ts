@@ -75,8 +75,7 @@ export const setupDatabase = async (pool: Pool): Promise<void> => {
           short_description TEXT,
           attach_name TEXT,
           attach_url TEXT,
-          tags_id TEXT,  -- Comma-separated tag IDs
-          FOREIGN KEY (blog_id) REFERENCES blogs(id) ON DELETE SET NULL
+          tags_id TEXT  -- Comma-separated tag IDs
       );
 
       -- CREATE ROLE postgres WITH LOGIN SUPERUSER;
